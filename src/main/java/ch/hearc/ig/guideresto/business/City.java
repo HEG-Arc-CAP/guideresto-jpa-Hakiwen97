@@ -1,10 +1,16 @@
 package ch.hearc.ig.guideresto.business;
 
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
-
+@Entity
+@Table(name="VILLES")
 public class City {
-    
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "SEQ_VIL")
+    @SequenceGenerator(name="SEQ_VIL",sequenceName = "SEQ_VILLES",initialValue = 1,allocationSize = 1)
+    @Column(name="NUMERO")
+    //REVOIR si les nom jouent
     private Integer id;
     private String zipCode;
     private String cityName;

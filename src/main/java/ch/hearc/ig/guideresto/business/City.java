@@ -10,11 +10,13 @@ public class City {
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "SEQ_VIL")
     @SequenceGenerator(name="SEQ_VIL",sequenceName = "SEQ_VILLES",initialValue = 1,allocationSize = 1)
     @Column(name="NUMERO")
-    //REVOIR si les nom jouent
     private Integer id;
+    @Column(name="CODE_POSTAL")
     private String zipCode;
+    @Column(name="NOM_VILLE")
     private String cityName;
-    private Set<Restaurant> restaurants;
+    @Transient
+   private Set<Restaurant> restaurants;
 
     public City() {
         this(null, null);
@@ -62,4 +64,5 @@ public class City {
     public void setRestaurants(Set<Restaurant> restaurants) {
         this.restaurants = restaurants;
     }
+
 }

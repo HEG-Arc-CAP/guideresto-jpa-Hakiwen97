@@ -1,15 +1,27 @@
 package ch.hearc.ig.guideresto.business;
 
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
-
+@Entity
+@Table(name="RESTAURANTS")
 public class Restaurant {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "SEQ_RES")
+    @SequenceGenerator(name="SEQ_RES",sequenceName = "SEQ_RESTAURANTS",initialValue = 1,allocationSize = 1)
+    @Column(name="NUMERO")
     private Integer id;
+    @Column(name="NOM")
     private String name;
+    @Column(name="DESCRIPTION")
     private String description;
+    @Column(name="SITE_WEB")
     private String website;
+    @Transient
     private Set<Evaluation> evaluations;
+    @Column(name="ADRESSE")
     private Localisation address;
+    @Transient
     private RestaurantType type;
 
     public Restaurant() {

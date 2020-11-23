@@ -1,8 +1,13 @@
 package ch.hearc.ig.guideresto.business;
 
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class Localisation {
-    
+    @Column(name="ADRESSE")
     private String street;
+    @Column(name="ADRESSE") // possible de mettre 2 fois la meme chose ??
     private City city;
 
     public Localisation() {

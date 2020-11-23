@@ -17,11 +17,14 @@ public class Restaurant {
     private String description;
     @Column(name="SITE_WEB")
     private String website;
-    @Transient
+    @OneToMany
+    @JoinColumn(name="NUMERO")
     private Set<Evaluation> evaluations;
-    @Column(name="ADRESSE")
+
+    @Embedded
     private Localisation address;
-    @Transient
+    @OneToOne
+    @JoinColumn(name="FK_TYPE")
     private RestaurantType type;
 
     public Restaurant() {

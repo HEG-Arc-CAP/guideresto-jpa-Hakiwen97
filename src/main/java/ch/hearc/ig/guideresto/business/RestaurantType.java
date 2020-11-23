@@ -1,13 +1,21 @@
 package ch.hearc.ig.guideresto.business;
 
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
-
+@Entity
+@Table(name="TYPES_GASTRONOMIQUES")
 public class RestaurantType {
-    
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "SEQ_TYP_GAS")
+    @SequenceGenerator(name="SEQ_TYP_GAS",sequenceName = "SEQ_TYPES_GASTRONOMIQUES",initialValue = 1,allocationSize = 1)
     private Integer id;
+    @Column(name="LIBELLLE")
     private String label;
+    @Column(name="DESCRIPTION")
     private String description;
+    @OneToMany
+    @JoinColumn("NUMERO")
     private Set<Restaurant> restaurants;
 
     public RestaurantType() {

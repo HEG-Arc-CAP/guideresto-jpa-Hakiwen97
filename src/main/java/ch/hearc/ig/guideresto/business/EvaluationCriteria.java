@@ -1,9 +1,17 @@
 package ch.hearc.ig.guideresto.business;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="CRITERES_EVALUATION")
 public class EvaluationCriteria {
-    
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "SEQ_CRI")
+    @SequenceGenerator(name="SEQ_CRI",sequenceName = "SEQ_CRITERES_EVALUATION",initialValue = 1,allocationSize = 1)
     private Integer id;
+    @Column(name="NOM")
     private String name;
+    @Column(name="DESCRIPTION")
     private String description;
 
     public EvaluationCriteria() {

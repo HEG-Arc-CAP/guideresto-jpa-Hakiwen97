@@ -1,10 +1,20 @@
 package ch.hearc.ig.guideresto.business;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="NOTES")
 public class Grade {
-    
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "SEQ_NOT")
+    @SequenceGenerator(name="SEQ_NOT",sequenceName = "SEQ_NOTES",initialValue = 1,allocationSize = 1)
     private Integer id;
+    @Column(name="NOTE")
     private Integer grade;
+    @Embedded
     private CompleteEvaluation evaluation;
+    @OneToOne
+    @JoinColumn(name="NUMERO")
     private EvaluationCriteria criteria;
 
     public Grade() {

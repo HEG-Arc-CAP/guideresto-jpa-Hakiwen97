@@ -1,9 +1,10 @@
 package ch.hearc.ig.guideresto.business;
 
+import javax.persistence.Embeddable;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
-
+@Embeddable
 public class CompleteEvaluation extends Evaluation {
     
     private String comment;

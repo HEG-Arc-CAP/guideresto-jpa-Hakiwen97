@@ -15,7 +15,8 @@ public class City {
     private String zipCode;
     @Column(name="NOM_VILLE")
     private String cityName;
-    @Transient
+    @OneToMany
+    @JoinColumn(name="NUMERO")
    private Set<Restaurant> restaurants;
 
     public City() {

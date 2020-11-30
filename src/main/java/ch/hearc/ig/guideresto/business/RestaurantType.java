@@ -15,7 +15,7 @@ public class RestaurantType {
     @Column(name="DESCRIPTION")
     private String description;
     @OneToMany
-    @JoinColumn("NUMERO")
+    //@JoinColumn("NUMERO")
     private Set<Restaurant> restaurants;
 
     public RestaurantType() {
